@@ -374,7 +374,7 @@ class Miyuki
     
     function setType($type)
     {
-        switch($Type)
+        switch($type)
         {
             case 'png':
                 $this->imageBlock -> setImageFormat('png');
