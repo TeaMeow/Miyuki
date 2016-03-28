@@ -74,7 +74,7 @@ class Miyuki
      * @return Miyuki
      */
     
-    public function resize($width, $Height, $AspectRatio = true, $force = false)
+    public function resize($width, $height, $aspectRatio = true, $force = false)
     {
         $imageWidth  = $this->imageSize['width'];
         $imageHeight = $this->imageSize['height'];
@@ -115,7 +115,7 @@ class Miyuki
      * @return Miyuki
      */
     
-    public function Scale($width, $height, $aspectRatio = true, $force = false)
+    public function scale($width, $height, $aspectRatio = true, $force = false)
     {
         $imageWidth  = $this->imageSize['width'];
         $imageHeight = $this->imageSize['height'];
@@ -425,7 +425,6 @@ class Miyuki
      
     function checkType($allowed)
     {
-   
         $allowed = explode(', ', $allowed);
 
         return in_array($this->imageType['extension'], $allowed);
