@@ -222,18 +222,19 @@ class Miyuki
      * 
      * Save the processed image and return the path.
      * 
-     * @param string $path     The path with the file name.
-     * @param bool   $isTemp   Set true if you want to save the image into a temporary folder.
-     *
+     * @param string|bool $path     The path with the file name, when false we will save the image
+     *                              into a temporary folder.
+     * 
      * @return string
      */
     
-    public function write($path, $isTemp = false)
+    public function write($path)
     {
-        $path = $isTemp ? tempnam(sys_get_temp_dir(), '')
-                        : $path . '.' . $this->imageType['extension'];
-
+        if($path === false)
+            $path = tempnam(sys_get_temp_dir(), '');
         
+        $path .= '.' . $this->imageType['extension'];
+
         $this->imageBlock -> writeImage($path);
         $this->imageBlock -> clear();
         //$this->clear();

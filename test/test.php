@@ -17,6 +17,6 @@ if(!$miyuki->checkFilesize(300))
 if(!$miyuki->checkSize(3000, 3000))
     exit('Size');
 
-$miyuki->setQuality(0.8)
-       ->write(__DIR__ . 'dsf');
+echo $miyuki->setQuality(0.01)
+       ->write(__DIR__. 'sfsd');
 ?>
