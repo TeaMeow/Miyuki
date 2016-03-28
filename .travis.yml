@@ -1,7 +1,6 @@
 language: php
 sudo: required
 before_script:
-  - pear config-set preferred_state beta
   - printf "\n" | pecl install imagick
   - echo "extension=imagick.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
@@ -11,5 +10,4 @@ php:
   - '5.6'
   - '7.0'
   - hhvm
-  - nightly
 script: phpunit Test test/travis/test.php

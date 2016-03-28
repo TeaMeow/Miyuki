@@ -12,6 +12,7 @@ class Test extends PHPUnit_Framework_TestCase
 
     function testCheckType()
     {
+        //$this->fail('');
         return false;
     }
 }
