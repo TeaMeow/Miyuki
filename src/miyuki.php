@@ -27,7 +27,7 @@ class Miyuki
     
     function create($imagePath)
     {
-        $this->imageBlock = new imagick($photoPath);
+        $this->imageBlock = new imagick($imagePath);
         $this->imagePath  = $imagePath;
         $this->imageType  = $this->getType();
         $this->imageSize  = $this->getSize();
@@ -234,9 +234,9 @@ class Miyuki
                         : $path . '.' . $this->imageType['extension'];
 
         
-        $this->imageBlock -> writeImage($path)
-                          -> clear();
-        $this->clear();
+        $this->imageBlock -> writeImage($path);
+        $this->imageBlock -> clear();
+        //$this->clear();
         
         return $path;
     }
@@ -257,9 +257,74 @@ class Miyuki
     function setQuality($quality)
     {
         /** Convert the float into int for imagick */
-        $this->quality = $quality * 10;
+        $this->quality = $quality * 100;
         
         $this->imageBlock -> setImageCompressionQuality($this->quality);
+        
+        return $this;
+    }
+    
+    
+    
+    
+    /**
+     * Set Compression
+     * 
+     * Set the image compression.
+     * 
+     * @param string $compression   The name of the compression.
+     * 
+     * @return Miyuki
+     */
+    
+    function setCompression($compression)
+    {
+        switch($compression)
+        {
+            case 'UNDEFINED':
+                $this->imageBlock -> setImageCompression(imagick::COMPRESSION_UNDEFINED);
+                break;
+            
+            case 'NO':
+                $this->imageBlock -> setImageCompression(imagick::COMPRESSION_NO);
+                break;
+            
+            case 'BZIP':
+                $this->imageBlock -> setImageCompression(imagick::COMPRESSION_BZIP);
+                break;
+                
+            case 'FAX':
+                $this->imageBlock -> setImageCompression(imagick::COMPRESSION_FAX);
+                break;
+            
+            case 'GROUP4':
+                $this->imageBlock -> setImageCompression(imagick::COMPRESSION_GROUP4);
+                break;
+                
+            case 'JPEG':
+                $this->imageBlock -> setImageCompression(imagick::COMPRESSION_JPEG);
+                break;
+                
+            case 'JPEG2000':
+                $this->imageBlock -> setImageCompression(imagick::COMPRESSION_JPEG2000);
+                break;
+                
+            case 'LOSSLESSJPEG':
+                $this->imageBlock -> setImageCompression(imagick::COMPRESSION_LOSSLESSJPEG);
+                break;
+                
+            case 'LZW':
+                $this->imageBlock -> setImageCompression(imagick::COMPRESSION_LZW);
+                break;
+                
+            case 'RLE':
+                $this->imageBlock -> setImageCompression(imagick::COMPRESSION_RLE);
+                break;
+                
+            case 'ZIP':
+                $this->imageBlock -> setImageCompression(imagick::COMPRESSION_ZIP);
+                break;
+        }
         
         return $this;
     }
