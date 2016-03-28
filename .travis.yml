@@ -1,11 +1,11 @@
 language: php
+sudo: required
 before_script:
   - pear config-set preferred_state beta
-  - pecl install imagick
+  - printf "\n" | pecl install imagick
   - echo "extension=imagick.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
 php:
-  - '5.3'
   - '5.4'
   - '5.5'
   - '5.6'
