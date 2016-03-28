@@ -12,8 +12,10 @@ class Test extends PHPUnit_Framework_TestCase
 
     function testCheckType()
     {
-        //$this->fail('');
-        return false;
+        if(!$miyuki->checkType('jpg'))
+            $this->fail('Miyuki Allowed a image with the type which shouldn\'t be allowed.');
+        
+        
     }
 }
 
