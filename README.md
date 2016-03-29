@@ -45,6 +45,8 @@ $miyuki = new Miyuki();
 $miyuki->create('test.png');
 ```
 
+&nbsp;
+
 接著對這張圖片進行縮圖，並且變更畫質至 `0.5`。
 
 ```php
@@ -52,11 +54,15 @@ $miyuki->setQuality(0.5)
        ->resize(1280, 720);
 ```
 
+&nbsp;
+
 然後將這張圖片儲存在暫存資料夾，並取得路徑。
 
 ```php
 $path = $miyuki->write(false);
 ```
+
+&nbsp;
 
 接下來你會得到儲存後的圖片路徑。
 
