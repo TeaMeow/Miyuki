@@ -18,5 +18,5 @@ if(!$miyuki->checkSize(3000, 3000))
     exit('Size');
 
 echo $miyuki->setQuality(0.01)
-       ->write(__DIR__. 'sfsd');
+       ->write(false);
 ?>
