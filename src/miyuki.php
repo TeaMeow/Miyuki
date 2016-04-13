@@ -8,8 +8,8 @@ class Miyuki
 
     function __construct($imagePath = null)
     {
-        if($imagePath !== null)
-            $this->create($imagePath);
+        //if($imagePath !== null)
+        //    $this->create($imagePath);
     }
 
 
@@ -27,6 +27,9 @@ class Miyuki
 
     function create($imagePath)
     {
+        if(!getimagesize($imagePath))
+            return false;
+
         $this->imageBlock = new imagick($imagePath);
         $this->imagePath  = $imagePath;
         $this->imageType  = $this->getType();
