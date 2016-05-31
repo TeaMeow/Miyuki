@@ -3,7 +3,8 @@ build:
   commands:
     #- printf "\n" | pecl install imagick
     - apt-get update
-    - apt-get install php5-dev pecl imagemagick libmagickwand-dev
+    - apt-get install php-pear
+    - apt-get install php5-dev imagemagick libmagickwand-dev
     - pecl install imagick
     - apt-get install php5-imagick
     #- echo "extension=imagick.so" >> /usr/local/etc/php.ini
