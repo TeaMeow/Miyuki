@@ -2,6 +2,7 @@ build:
   image: phpunit/phpunit:$$PHPUNIT_VERSION
   commands:
     - printf "\n" | pecl install imagick
+    - php --ini
     - echo "extension=imagick.so" >> /etc/php.ini
     - phpunit Test test/unit/test.php
 
