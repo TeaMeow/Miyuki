@@ -2,12 +2,11 @@ build:
   image: phpunit/phpunit:$$PHPUNIT_VERSION
   commands:
     #- printf "\n" | pecl install imagick
-    - ls /usr/local/etc/php/conf.d
     - apt-get update
-    - apt-get install php-pear
-    - apt-get install php5-dev imagemagick libmagickwand-dev
+    - apt-get install -y libmagickwand-dev --no-install-recommends
+    - rm -rf /var/lib/apt/lists/*
     - pecl install imagick
-    - apt-get install php5-imagick
+    - docker-php-ext-enable imagick
     #- echo "extension=imagick.so" >> /usr/local/etc/php.ini
     - phpunit Test test/unit/test.php
 
