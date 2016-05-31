@@ -2,7 +2,7 @@ build:
   image: phpunit/phpunit:$$PHPUNIT_VERSION
   commands:
     - printf "\n" | pecl install imagick
-    - echo "extension=imagick.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+    - echo "extension=imagick.so" >> /etc/php.ini
     - phpunit Test test/unit/test.php
 
 matrix:
