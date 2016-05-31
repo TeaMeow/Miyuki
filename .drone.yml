@@ -2,6 +2,7 @@ build:
   image: phpunit/phpunit:$$PHPUNIT_VERSION
   commands:
     #- printf "\n" | pecl install imagick
+    - ls /usr/local/etc/php/conf.d
     - apt-get update
     - apt-get install php-pear
     - apt-get install php5-dev imagemagick libmagickwand-dev
