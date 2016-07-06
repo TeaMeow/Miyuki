@@ -136,9 +136,6 @@ class MiyukiTest extends PHPUnit_Framework_TestCase
         $this->Miyuki->create('test/images/test.jpg');
         $this->assertEquals($this->Miyuki->getType(), ['mime' => 'image/jpg', 'extension' => 'jpg']);
 
-        $this->Miyuki->create('test/images/test.jpeg');
-        $this->assertEquals($this->Miyuki->getType(), ['mime' => 'image/jpeg', 'extension' => 'jpeg']);
-
         $this->Miyuki->create('test/images/test.webp');
         $this->assertEquals($this->Miyuki->getType(), ['mime' => 'image/webp', 'extension' => 'webp']);
 
