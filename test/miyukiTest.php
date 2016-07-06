@@ -7,72 +7,99 @@ class MiyukiTest extends PHPUnit_Framework_TestCase
 {
     function __construct()
     {
-        $this->miyuki = new Miyuki();
-        $this->miyuki->create('test/test.png');
+        $this->Miyuki = new Miyuki();
+        $this->Miyuki->create('test/test.png');
     }
 
     function testCheckType()
     {
-        $this->assertFalse($this->miyuki->checkType('jpg'));
-        $this->assertTrue($this->miyuki->checkType('png'));
+        $this->assertFalse($this->Miyuki->checkType('jpg'));
+        $this->assertTrue($this->Miyuki->checkType('png'));
     }
 
     function testCheckFilesize()
     {
-        $this->assertFalse($this->miyuki->checkFilesize(10));
+        $this->assertFalse($this->Miyuki->checkFilesize(10));
     }
 
     function testCheckSize()
     {
-        $this->assertTrue($this->miyuki->checkSize(112, 142));
-        $this->assertFalse($this->miyuki->checkSize(1, 1));
+        $this->assertTrue($this->Miyuki->checkSize(112, 142));
+        $this->assertFalse($this->Miyuki->checkSize(1, 1));
     }
 
     function testResize()
     {
-        $this->miyuki->resize(20, 20);
+        $this->Miyuki->resize(20, 20);
     }
 
     function testScale()
     {
-        $this->miyuki->scale(20, 20);
+        $this->Miyuki->scale(20, 20);
     }
 
     function testThumbnail()
     {
-        $this->miyuki->thumbnail(20, 20);
+        $this->Miyuki->thumbnail(20, 20);
+    }
+
+    function testCrop()
+    {
+        $this->Miyuki->crop(20, 20, 20, 20);
     }
 
     function testAspectRatio()
     {
-        $this->miyuki->aspectRatio(20, 20, 40, 40);
-        $this->miyuki->aspectRatio(1, 1, 1, 1);
-        $this->miyuki->aspectRatio(-1, -1, -1, -1);
+        $this->Miyuki->aspectRatio(999, 999, 999, 999);
+        $this->Miyuki->aspectRatio(20, 20, 40, 40);
+        $this->Miyuki->aspectRatio(1, 1, 1, 1);
+        $this->Miyuki->aspectRatio(-1, -1, -1, -1);
     }
 
     function testSetQuality()
     {
-        $this->miyuki->setQuality(0.1);
+        $this->Miyuki->setQuality(0.1);
+    }
+
+    function testSetImageCompression()
+    {
+        $this->Miyuki->setImageCompression(Imagick::COMPRESSION_JPEG);
     }
 
     function testSetCompression()
     {
-        $this->miyuki->setCompression('ZIP');
+        $compressions = ['UNDEFINED', 'NO', 'BZIP', 'FAX', 'GROUP4', 'JPEG', 'JPEG2000', 'LOSSLESSJPEG', 'LZW', 'RLE', 'ZIP'];
+
+        foreach($compressions as $compression)
+            $this->Miyuki->setCompression($compression);
     }
 
     function testSetFilter()
     {
-        $this->miyuki->setFilter('LANCZOS');
+        $filters = ['LANCZOS', 'POINT'];
+
+        foreach($filters as $filter)
+            $this->Miyuki->setFilter($filter);
     }
 
     function testSetType()
     {
-        $this->miyuki->setType('jpeg');
+        $types = ['png', 'png8', 'jpeg'];
+
+        foreach($types as $type)
+            $this->Miyuki->setType($type);
+    }
+
+    function testGetSize()
+    {
+        echo var_dump($this->Miyuki->getSize());
     }
 
     function testWrite()
     {
-        $this->miyuki->write(false);
+        $this->Miyuki->write(false);
+        $this->Miyuki->write(true);
+        $this->Miyuki->write('/tmp/test.png');
     }
 }
 

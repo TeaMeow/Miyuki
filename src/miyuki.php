@@ -5,19 +5,7 @@ class Miyuki
     public $filter  = Imagick::FILTER_POINT;
     public $quality = 80;
 
-
-    function __construct($imagePath = null)
-    {
-        //if($imagePath !== null)
-        //    $this->create($imagePath);
-    }
-
-
-
-
     /**
-     * Create
-     *
      * Create an image block for later to use.
      *
      * @param string $imagePath   The path of the image which we are going to process with.
@@ -42,8 +30,6 @@ class Miyuki
 
 
     /**
-     * Crop
-     *
      * Crop the image to a target size.
      *
      * @param int $width    The width of the cropped image.
@@ -65,8 +51,6 @@ class Miyuki
 
 
     /**
-     * Resize
-     *
      * resize the image.
      *
      * @param int  $width
@@ -106,8 +90,6 @@ class Miyuki
 
 
     /**
-     * Scale
-     *
      * Scale the image and IGNORE any filters.
      *
      * @param int  $width
@@ -142,8 +124,6 @@ class Miyuki
 
 
     /**
-     * Thumbnail
-     *
      * More faster than resize with less file size, and remove the exif automantically.
      *
      * @param int  $width
@@ -176,8 +156,6 @@ class Miyuki
 
 
     /**
-     * Aspect Ratio
-     *
      * Calculate and return the best ratio of the image.
      *
      * @param int $srcWidth
@@ -221,8 +199,6 @@ class Miyuki
 
 
     /**
-     * Write
-     *
      * Save the processed image and return the path.
      *
      * @param string|bool $path     The path with the file name, when false we will save the image
@@ -251,8 +227,6 @@ class Miyuki
 
 
     /**
-     * Set Quality
-     *
      * Change the quality of the final image.
      *
      * @param int $quality   The quality value, min: 0.1, max: 1.
@@ -289,8 +263,6 @@ class Miyuki
 
 
     /**
-     * Set Compression
-     *
      * Set the image compression.
      *
      * @param string $compression   The name of the compression.
@@ -354,8 +326,6 @@ class Miyuki
 
 
     /**
-     * Set Filter
-     *
      * Change the filter.
      *
      * @param string $filter   The name of the filter.
@@ -383,8 +353,6 @@ class Miyuki
 
 
     /**
-     * Set Type
-     *
      * Change the type of the final image.
      *
      * @param string $type   The type name.
@@ -414,8 +382,6 @@ class Miyuki
 
 
     /**
-     * Check File Size
-     *
      * Returns true when the file size is under the limit.
      *
      * @param int $limit   KB.
@@ -434,8 +400,6 @@ class Miyuki
 
 
     /**
-     * Check Type
-     *
      * Returns true when the type of the image is valid.
      *
      * @param string $allowed   A string which contains the allowed types like 'jpg, png'.
@@ -454,8 +418,6 @@ class Miyuki
 
 
     /**
-     * Check Size
-     *
      * Returns true if the width and the height of the image are okay :D
      *
      * @param int $width       The max width of the image should be.
@@ -479,8 +441,6 @@ class Miyuki
 
 
     /**
-     * Get Type
-     *
      * Returns the type of the current image block.
      *
      * @return array
@@ -515,8 +475,6 @@ class Miyuki
 
 
     /**
-     * Get Size
-     *
      * Returns the width and the height of the image.
      *
      * @return array
