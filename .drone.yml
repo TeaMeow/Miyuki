@@ -21,7 +21,7 @@ build:
 
     # imagick
     - printf "%s\n------------------------------\n-------  I M A G I C K -------\n------------------------------%s\n%s\n"
-    - pecl install imagick
+    - printf "\n" | pecl install imagick
     - docker-php-ext-enable imagick
 
     # xdebug
