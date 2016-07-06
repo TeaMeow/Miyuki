@@ -7,28 +7,25 @@ class MiyukiTest extends PHPUnit_Framework_TestCase
 {
     function __construct()
     {
-        $this->miyuki = new Miyuki('test/travis/test.png');
+        $this->miyuki = new Miyuki();
+        $this->miyuki->create('test/travis/test.png');
     }
 
     function testCheckType()
     {
-        if($this->miyuki->checkType('jpg'))
-            $this->fail('Miyuki allowed an image with the type which shouldn\'t be allowed.');
-
-        if(!$this->miyuki->checkType('png'))
-            $this->fail('Miyuki not allowed an image with the type which should be allowed.');
+        $this->assertFalse($this->miyuki->checkType('jpg'));
+        $this->assertTrue($this->miyuki->checkType('png'));
     }
 
     function testCheckFilesize()
     {
-        if($this->miyuki->checkFilesize(10))
-            $this->fail('Miyuki allowed an image with the wrong filesize.');
+        $this->assertFalse($this->miyuki->checkFilesize(10));
     }
 
     function testCheckSize()
     {
-        if(!$this->miyuki->checkSize(112, 142) || $this->miyuki->checkSize(1, 1))
-            $this->fail('Miyuki having problem on detect the size of the image.');
+        $this->assertTrue($this->miyuki->checkSize(112, 142));
+        $this->assertFalse($this->miyuki->checkSize(1, 1));
     }
 
     function testResize()
