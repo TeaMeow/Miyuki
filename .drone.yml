@@ -22,7 +22,7 @@ build:
     # imagick
     - printf "%s\n------------------------------\n-------  I M A G I C K -------\n------------------------------%s\n%s\n"
     - printf "\n" | pecl install imagick
-    - docker-php-ext-enable imagick
+    - echo "extension=imagick.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
     # xdebug
     - printf "%s\n------------------------------\n--------  X D E B U G --------\n------------------------------%s\n%s\n"
