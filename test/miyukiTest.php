@@ -8,6 +8,7 @@ class MiyukiTest extends PHPUnit_Framework_TestCase
     function __construct()
     {
         $this->Miyuki = new Miyuki();
+        $this->Miyuki->create('test/test.png');
     }
 
     function testCreate()
