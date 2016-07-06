@@ -59,17 +59,10 @@ class MiyukiTest extends PHPUnit_Framework_TestCase
 
     function testAspectRatio()
     {
-        $this->Miyuki->create('test/images/test.png');
         $this->Miyuki->aspectRatio(999, 999, 999, 999);
         $this->Miyuki->aspectRatio(20, 20, 40, 40);
+        $this->Miyuki->aspectRatio(30, 20, 20, 20);
         $this->Miyuki->aspectRatio(40, 40, 20, 20);
-        $this->Miyuki->aspectRatio(1, 1, 1, 1);
-        $this->Miyuki->aspectRatio(-1, -1, -1, -1);
-
-        $this->Miyuki->create('test/images/test2.png');
-        $this->Miyuki->aspectRatio(999, 999, 999, 999);
-        $this->Miyuki->aspectRatio(20, 20, 30, 30);
-        $this->Miyuki->aspectRatio(30, 30, 20, 20);
         $this->Miyuki->aspectRatio(1, 1, 1, 1);
         $this->Miyuki->aspectRatio(-1, -1, -1, -1);
     }
