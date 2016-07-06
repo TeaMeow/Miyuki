@@ -14,6 +14,10 @@ class MiyukiTest extends PHPUnit_Framework_TestCase
     function testCreate()
     {
         $this->Miyuki->create('test/test.png');
+        $this->Miyuki->create('test/test.jpg');
+        $this->Miyuki->create('test/test.jpeg');
+        $this->Miyuki->create('test/test.webp');
+        $this->Miyuki->create('test/test.bmp');
     }
 
     function testCheckType()
@@ -106,9 +110,32 @@ class MiyukiTest extends PHPUnit_Framework_TestCase
 
     function testWrite()
     {
+        $this->Miyuki->create('test/test.png');
         $this->Miyuki->write(false);
+
+        $this->Miyuki->create('test/test.png');
         $this->Miyuki->write(true);
+
+        $this->Miyuki->create('test/test.png');
         $this->Miyuki->write('/tmp/test.png');
+    }
+
+    function testGetType()
+    {
+        $this->Miyuki->create('test/test.png');
+        $this->assertEquals($this->Miyuki->getType(), 'png');
+
+        $this->Miyuki->create('test/test.jpg');
+        $this->assertEquals($this->Miyuki->getType(), 'jpg');
+
+        $this->Miyuki->create('test/test.jpeg');
+        $this->assertEquals($this->Miyuki->getType(), 'jpeg');
+
+        $this->Miyuki->create('test/test.webp');
+        $this->assertEquals($this->Miyuki->getType(), 'webp');
+
+        $this->Miyuki->create('test/test.bmp');
+        $this->assertEquals($this->Miyuki->getType(), 'bmp');
     }
 }
 
