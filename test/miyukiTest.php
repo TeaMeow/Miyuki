@@ -8,6 +8,10 @@ class MiyukiTest extends PHPUnit_Framework_TestCase
     function __construct()
     {
         $this->Miyuki = new Miyuki();
+    }
+
+    function testCreate()
+    {
         $this->Miyuki->create('test/test.png');
     }
 
@@ -52,6 +56,7 @@ class MiyukiTest extends PHPUnit_Framework_TestCase
     {
         $this->Miyuki->aspectRatio(999, 999, 999, 999);
         $this->Miyuki->aspectRatio(20, 20, 40, 40);
+        $this->Miyuki->aspectRatio(40, 40, 20, 20);
         $this->Miyuki->aspectRatio(1, 1, 1, 1);
         $this->Miyuki->aspectRatio(-1, -1, -1, -1);
     }
@@ -92,7 +97,10 @@ class MiyukiTest extends PHPUnit_Framework_TestCase
 
     function testGetSize()
     {
-        echo var_dump($this->Miyuki->getSize());
+        $size = $this->Miyuki->getSize();
+
+        $this->assertEquals($size['width'], 112);
+        $this->assertEquals($size['height'], 142);
     }
 
     function testWrite()
