@@ -68,8 +68,8 @@ class MiyukiTest extends PHPUnit_Framework_TestCase
 
         $this->Miyuki->create('test/images/test2.png');
         $this->Miyuki->aspectRatio(999, 999, 999, 999);
-        $this->Miyuki->aspectRatio(20, 20, 40, 40);
-        $this->Miyuki->aspectRatio(40, 40, 20, 20);
+        $this->Miyuki->aspectRatio(20, 20, 30, 30);
+        $this->Miyuki->aspectRatio(30, 30, 20, 20);
         $this->Miyuki->aspectRatio(1, 1, 1, 1);
         $this->Miyuki->aspectRatio(-1, -1, -1, -1);
     }
@@ -135,9 +135,6 @@ class MiyukiTest extends PHPUnit_Framework_TestCase
 
         $this->Miyuki->create('test/images/test.jpg');
         $this->assertEquals(['mime' => 'image/jpeg', 'extension' => 'jpg'], $this->Miyuki->getType());
-
-        $this->Miyuki->create('test/images/test.webp');
-        $this->assertEquals(['mime' => 'image/webp', 'extension' => 'webp'], $this->Miyuki->getType());
 
         $this->Miyuki->create('test/images/test.bmp');
         $this->assertEquals(['mime' => 'image/bmp', 'extension' => 'bmp'], $this->Miyuki->getType());
