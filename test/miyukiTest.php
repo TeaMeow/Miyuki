@@ -47,6 +47,7 @@ class MiyukiTest extends PHPUnit_Framework_TestCase
     {
         $this->miyuki->aspectRatio(20, 20, 40, 40);
         $this->miyuki->aspectRatio(1, 1, 1, 1);
+        $this->miyuki->aspectRatio(-1, -1, -1, -1);
     }
 
     function testSetQuality()
