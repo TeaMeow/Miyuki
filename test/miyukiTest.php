@@ -131,6 +131,8 @@ class MiyukiTest extends PHPUnit_Framework_TestCase
 
         $this->Miyuki->create('test/images/test.bmp');
         $this->assertEquals(['mime' => 'image/x-ms-bmp', 'extension' => 'bmp'], $this->Miyuki->getType());
+
+        echo var_dump($this->Miyuki->getType());
     }
 }
 
