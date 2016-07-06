@@ -456,12 +456,13 @@ class Miyuki
 
         switch($mime)
         {
-            case 'image/png' : $extesion = 'png';  break;
-            case 'image/gif' : $extesion = 'gif';  break;
-            case 'image/jpeg':
-            case 'image/jpg' : $extesion = 'jpg';  break;
-            case 'image/bmp' : $extesion = 'bmp';  break;
-            case 'image/webp': $extesion = 'webp'; break;
+            case 'image/png'     : $extesion = 'png';  break;
+            case 'image/gif'     : $extesion = 'gif';  break;
+            case 'image/jpeg'    :
+            case 'image/jpg'     : $extesion = 'jpg';  break;
+            case 'image/bmp'     :
+            case 'image/x-ms-bmp': $extesion = 'bmp';  break;
+            case 'image/webp'    : $extesion = 'webp'; break;
 
             default:
                 $extesion = false;
