@@ -17,8 +17,4 @@ build:
 
     # coveralls
     - printf "%s\n------------------------------\n-----  C O V E R A L L S -----\n------------------------------%s\n%s\n"
-<<<<<<< HEAD
     - coveralls -v -x build/logs/clover.xml
-=======
-    - coveralls -v -x build/logs/clover.xml
->>>>>>> 9bd44fc950f70f0c4ac88036854ea6805374354b
